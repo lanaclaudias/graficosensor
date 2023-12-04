@@ -10,15 +10,26 @@
       margin: 0;
       padding: 0;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      background-color: #f2f2f2;
+      background-color: #f79f07;
+    }
+
+    #content-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #logo {
+      float: left;
+      margin-right: 20px;
+      width: 90%; /* Defina a largura como 100% */
+      height: auto; /* Mantenha a proporção */
     }
 
     #login-container {
-      width: 300px;
+      width: 30%;
       padding: 20px;
       background-color: #ffffff;
       border: 1px solid #cccccc;
@@ -36,7 +47,7 @@
     button {
       width: 100%;
       padding: 10px;
-      background-color: #4caf50;
+      background-color: #0f7937;
       color: #ffffff;
       border: none;
       border-radius: 3px;
@@ -46,15 +57,19 @@
 </head>
 <body>
 
-  <div id="login-container">
-    <h1>SensorTech - Monitoramento</h1>
-    <label for="username">Usuário:</label>
-    <input type="text" id="username" placeholder="Digite seu usuário">
+  <div id="content-container">
+    <img id="logo" src="imagens/logo_empresa-removebg-preview.png" alt="Logo da Empresa">
 
-    <label for="password">Senha:</label>
-    <input type="password" id="password" placeholder="Digite sua senha">
+    <div id="login-container">
+      <h1>SensorTech - Monitoramento</h1>
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" placeholder="Digite seu usuário">
 
-    <a href="graficoo.html"><button>Entrar</button></a>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" placeholder="Digite sua senha">
+
+      <a href="graficoo.html"><button>Entrar</button></a>
+    </div>
   </div>
 
 </body>
