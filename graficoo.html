@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Detecção de Gases</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: rgb(255, 255, 255);
+    }
+
+    #chart-container {
+      width: 80%;
+      max-width: 600px;
+      margin-bottom: 20px;
+      border: 2px solid #000000;
+    }
+
+    #history-container {
+      width: 80%;
+      max-width: 600px;
+      overflow: auto;
+      border: 2px solid #000000;
+      padding: 10px;
+    }
+
+    .sensor-name {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="chart-container">
+    <canvas id="sensor-chart"></canvas>
+  </div>
+
+  <div id="history-container">
+    <div class="sensor-name">Histórico de Detecção</div>
+    <ul id="detection-history">
+      <!-- Exemplo de histórico -->
+      <li>25/03/2023 10:30 - MQ-2: Gás Combustível detectado</li>
+      <li>25/03/2023 11:15 - MQ-3: Vapores de Álcool detectados</li>
+      <li>26/03/2023 12:00 - MQ-135: Qualidade do ar comprometida</li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Configuração do gráfico
+    var ctx = document.getElementById('sensor-chart').getContext('2d');
+    var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['1', '2', '3', '4', '5'],
+        datasets: [{
+          label: 'MQ-2 (Gás Combustível)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [0, 10, 5, 2, 20], 
+          fill: false,
+        }, {
+          label: 'MQ-3 (Vapores de Álcool)',
+          borderColor: 'rgb(54, 162, 235)',
+          data: [5, 15, 10, 8, 25], 
+          fill: false,
+        }, {
+          label: 'MQ-135 (Qualidade do ar)',
+          borderColor: 'rgb(75, 192, 192)',
+          data: [10, 20, 15, 12, 30], 
+          fill: false,
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            type: 'linear',
+            position: 'bottom'
+          },
+          y: {
+            min: 0,
+            max: 40 
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
